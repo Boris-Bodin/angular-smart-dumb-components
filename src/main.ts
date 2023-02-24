@@ -1,29 +1,15 @@
-import 'zone.js/dist/zone';
-import { Component } from '@angular/core';
+import { enableProdMode, importProvidersFrom } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
-import { ProductListComponent } from './product/product-list.component';
-import { InputComponent } from './input/input.component';
-import { BookListComponent } from './book/book-list.component';
+import { RouterModule } from '@angular/router';
+import { AppRoutingRoutes } from '@core/app-routing.routes';
+import { AppComponent } from '@core/components/app.component';
+import { environment } from '@environment';
+import 'zone.js/dist/zone';
 
-@Component({
-  selector: 'my-app',
-  standalone: true,
-  imports: [ProductListComponent, InputComponent, BookListComponent],
-  template: `
-    <app-product-list/>
-    <br/>
-    <br/>
-    <app-input [label]="'Label : '" [value]="value" (valueChange)="value = $event"/>
-    <br/>
-    <span>Value : {{value}}</span>
-    <br/>
-    <br/>
-    <br/>
-    <app-book-list/>
-  `,
-})
-export class App {
-  value = '';
+if (environment.production) {
+  enableProdMode();
 }
 
-bootstrapApplication(App);
+bootstrapApplication(AppComponent, {
+  providers: [importProvidersFrom(RouterModule.forRoot(AppRoutingRoutes))],
+}).catch((err) => console.error(err));

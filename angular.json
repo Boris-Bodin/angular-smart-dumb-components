@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "demo": {
+    "angular-smart-dumb-components": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,11 +13,12 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/demo",
+            "outputPath": "dist/angular-smart-dumb-components",
             "index": "src/index.html",
             "main": "src/main.ts",
+            "tsConfig": "tsconfig.app.json",
             "assets": [],
-            "styles": ["src/global_styles.css"],
+            "styles": ["src/styles.css"],
             "scripts": []
           },
           "configurations": {
@@ -28,33 +29,30 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "demo:build"
+            "browserTarget": "angular-smart-dumb-components:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "demo:build:production"
+              "browserTarget": "angular-smart-dumb-components:build:production"
+            },
+            "development": {
+              "browserTarget": "angular-smart-dumb-components:build:development"
             }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "demo:build"
           }
         },
         "test": {
@@ -79,5 +77,5 @@
       }
     }
   },
-  "defaultProject": "demo"
+  "defaultProject": "angular-smart-dumb-components"
 }

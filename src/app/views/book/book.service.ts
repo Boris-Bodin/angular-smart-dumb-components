@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, of } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { Book } from './book';
 
 @Injectable({ providedIn: 'root' })
@@ -19,7 +19,9 @@ export class BookService {
       books.push(book);
     } else {
       let oldBook = books.find((b) => b.id === book.id);
-      Object.assign(oldBook, book);
+      if (oldBook) {
+        Object.assign(oldBook, book);
+      }
     }
     this.booksSubject.next(books);
   }
