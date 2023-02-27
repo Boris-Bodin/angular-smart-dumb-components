@@ -15,7 +15,7 @@ import { ProductService } from './product.service';
     <h1>Product List</h1>
     <ng-container *ngIf="$products | async as products">
       <div *ngFor="let product of products">
-        <app-product [product]="product" (addToCart)="addToCart($event)"/>
+        <app-product [product]="product" (addToCart)="addToCart($event)" />
       </div>
     </ng-container>
     <button (click)="goBack()">Go Back</button>

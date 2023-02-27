@@ -5,7 +5,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   standalone: true,
   template: `
     <label>{{ label }}</label>
-    <input #input [type]="type" [value]="value" (change)="valueChange.emit(input.value)"/>
+    <input #input [type]="type" [value]="value" (change)="valueChange.emit(input.value)" />
   `,
 })
 export class InputComponent {

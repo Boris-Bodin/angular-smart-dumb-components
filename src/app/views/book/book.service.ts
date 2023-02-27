@@ -4,9 +4,7 @@ import { Book } from './book';
 
 @Injectable({ providedIn: 'root' })
 export class BookService {
-  booksSubject: BehaviorSubject<Array<Book>> = new BehaviorSubject<Array<Book>>(
-    []
-  );
+  booksSubject: BehaviorSubject<Array<Book>> = new BehaviorSubject<Array<Book>>([]);
 
   getBooks() {
     return this.booksSubject.asObservable();
