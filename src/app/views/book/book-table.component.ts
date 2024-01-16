@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Book } from './book';
 
 @Component({
@@ -30,6 +30,6 @@ import { Book } from './book';
   `,
 })
 export class BookTableComponent {
-  @Input() books: Book[];
+  @Input() books: Array<Book> = [];
   @Output() edit = new EventEmitter<Book>();
 }

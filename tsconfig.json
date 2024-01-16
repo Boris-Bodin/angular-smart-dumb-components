@@ -1,21 +1,58 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    // Modules
     "baseUrl": "./",
+    "module": "es2020",
+    "moduleResolution": "node",
+    // Emit
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
-    "experimentalDecorators": true,
-    "module": "esnext",
-    "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2015",
+    "removeComments": true,
+    // Type checking
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "alwaysStrict": true,
+    // for material angular menu,
+    "exactOptionalPropertyTypes": false,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noStrictGenericChecks": true,
+    "noImplicitThis": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": false,
+    "strict": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "useUnknownInCatchVariables": true,
+    // Interop Constraints
+    "forceConsistentCasingInFileNames": true,
+    // Language and Environment
+    "target": "ES2022",
+    "lib": ["es2018", "dom"],
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false,
     "typeRoots": ["node_modules/@types"],
-    "lib": ["es2018", "dom"]
+    "paths": {
+      "@environment": ["src/environments/environment"],
+      "@core/*": ["src/app/core/*"],
+      "@shared/*": ["src/app/shared/*"],
+      "@views/*": ["src/app/views/*"]
+    }
   },
   "angularCompilerOptions": {
-    "strictTemplates": true,
-    "strictInjectionParameters": true
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
   }
 }

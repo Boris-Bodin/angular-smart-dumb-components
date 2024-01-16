@@ -1,11 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { ProductService } from './product.service';
 import { CartService } from './cart.service';
 import { Product } from './product';
 import { ProductComponent } from './product.component';
-import { CommonModule } from '@angular/common';
+import { ProductService } from './product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -22,7 +22,7 @@ import { CommonModule } from '@angular/common';
   `,
 })
 export class ProductListComponent implements OnInit {
-  $products: Observable<Array<Product>>;
+  $products: Observable<Array<Product>> | undefined;
 
   constructor(
     private readonly router: Router,
