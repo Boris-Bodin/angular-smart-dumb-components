@@ -12,10 +12,10 @@ import { BookService } from './book.service';
   imports: [BookTableComponent, BookFormComponent, CommonModule],
   template: `
     <ng-container *ngIf="$books | async as books">
-      <app-book-table [books]="books" (edit)="onEdit($event)"/>
+      <app-book-table [books]="books" (edit)="onEdit($event)" />
     </ng-container>
     <ng-container *ngIf="book">
-      <app-book-form (submit)="onAdd($event)" (cancel)="onCancel()" [book]="book"/>
+      <app-book-form (submit)="onAdd($event)" (cancel)="onCancel()" [book]="book" />
     </ng-container>
   `,
 })

@@ -8,21 +8,16 @@ import { ProductListComponent } from '@views/product/product-list.component';
 @Component({
   selector: 'my-app',
   standalone: true,
-  imports: [
-    ProductListComponent,
-    InputComponent,
-    BookListComponent,
-    RouterModule,
-  ],
+  imports: [ProductListComponent, InputComponent, BookListComponent, RouterModule],
   template: `
     <h1>Application Demonstration Smart/Dumb Component</h1>
 
-    <app-input [label]="'Dumb Component Label : '" [value]="value" (valueChange)="value = $event"/>&nbsp;
+    <app-input [label]="'Dumb Component Label : '" [value]="value" (valueChange)="value = $event" />&nbsp;
     <span>Value : {{value}}</span>
-    <br/>
+    <br />
     <a [routerLink]="productCmd">Show products components</a>&nbsp;
     <a [routerLink]="bookCmd">Show books components</a>
-    <br/>
+    <br />
     <router-outlet></router-outlet>
   `,
 })
